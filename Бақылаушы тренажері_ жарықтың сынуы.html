@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Бақылаушы тренажері: жарықтың сынуы</title>
+<style>
+:root{--ink:#1b2a41;--mute:#5b6b82;--bg:#f4f6fa;--card:#fff;--line:#d5dce8;--blue:#1f5fbf;--amber:#d9820a;--red:#c9304f;--water:#dcebfb;--ok:#1d7a46;--okbg:#e4f4ea;--badbg:#fdeaee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6ecf6;--mute:#9fb0c8;--bg:#101722;--card:#18212f;--line:#2c3a50;--blue:#6aa3ff;--amber:#f0a23a;--red:#ff7b94;--water:#1b3350;--ok:#64d598;--okbg:#14301f;--badbg:#3a1822}}
+:root[data-theme="dark"]{--ink:#e6ecf6;--mute:#9fb0c8;--bg:#101722;--card:#18212f;--line:#2c3a50;--blue:#6aa3ff;--amber:#f0a23a;--red:#ff7b94;--water:#1b3350;--ok:#64d598;--okbg:#14301f;--badbg:#3a1822}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.6rem;margin:0 0 4px;color:var(--blue)}
+h2{font-size:1.2rem;margin:0 0 6px}
+h3{font-size:1rem;margin:18px 0 6px}
+.sub{color:var(--mute);margin:0 0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.ray{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--amber) 50%,var(--red) 50%);margin-bottom:14px}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+dt{font-weight:600}dd{margin:0}
+.tabs{display:flex;gap:8px;margin:18px 0 12px;flex-wrap:wrap}
+.tab{flex:1;min-width:130px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:10px;font:inherit;cursor:pointer;text-align:left}
+.tab[aria-selected=true]{border-color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue);font-weight:600}
+.tab small{display:block;color:var(--mute);font-weight:400}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.log{list-style:none;margin:0;padding:0;border-left:3px solid var(--water)}
+.log li{display:flex;gap:12px;padding:5px 0 5px 12px}
+.log time{font-variant-numeric:tabular-nums;color:var(--blue);font-weight:600;min-width:44px}
+.task{background:var(--water);border-radius:10px;padding:10px 14px;margin-top:12px}
+.ind{border-top:1px solid var(--line);padding:12px 0}
+.ind b{display:block}
+.cond{color:var(--mute);font-size:.9rem;margin:2px 0 8px}
+.row{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin:4px 0}
+.row label{display:inline-flex;gap:5px;align-items:center;cursor:pointer}
+.row .lab{color:var(--mute);min-width:84px;font-size:.9rem}
+input[type=text]{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.ev{flex:1;min-width:200px}.tm{width:84px}
+.go{background:var(--blue);color:#fff;border:0;border-radius:10px;padding:10px 18px;font:inherit;font-weight:600;cursor:pointer;margin-top:10px}
+[data-theme=dark] .go,:root:not([data-theme=light]) .go{color:#0b1320}
+.msg{color:var(--red);margin:8px 0 0;min-height:1.2em}
+.res{margin-top:14px}
+.rit{border-radius:10px;padding:10px 14px;margin:8px 0;border:1px solid var(--line)}
+.rit.ok{background:var(--okbg)}.rit.bad{background:var(--badbg)}
+.rit p{margin:4px 0}
+.score{font-size:1.15rem;font-weight:700;color:var(--ok)}
+details{margin-bottom:14px}summary{cursor:pointer;font-weight:600}
+.hid{display:none}
+@media (prefers-reduced-motion:no-preference){.res{animation:f .3s}@keyframes f{from{opacity:0}to{opacity:1}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="ray"></div>
+<h1>Бақылаушы тренажері</h1>
+<p class="sub">Оқушының әрекетін байқа, тірке, дәлелде. Бақыланатын тапсырма: «Жарықтың сынуы» виртуал зертханасының графиктік тапсырмасы.</p>
+
+<div class="card">
+<dl>
+<dt>Тапсырма</dt><dd>Түсу бұрышы α = 50° берілген (ауа → шыны, n ≈ 1,5). Оқушы жүгірткімен сыну бұрышы γ-ны таңдап, «Тексеру» батырмасын басады. Дұрыс жауап: γ ≈ 30,7°.</dd>
+<dt>Бақылау эпизоды</dt><dd>3–5 минуттық бір оқу әрекеті. Оқушылар шартты кодпен белгіленген (О-07, О-12, О-03).</dd>
+<dt>Мақсат</dt><dd>Оқушы сыну бұрышын заңға сүйеніп табады ма, әлде болжап таңдай ма — осыны көрінетін әрекет бойынша тіркеу.</dd>
+</dl>
+<h3>Тіркеу ережесі</h3>
+<ul style="margin:0;padding-left:20px">
+<li><b>Байқалды</b> — әрекетті көрдіңіз немесе естідіңіз. <b>Байқалмады</b> — мүмкіндік болды, бірақ әрекет көрінбеді. <b>Бақылау мүмкін болмады</b> — әрекет көрінбеді, естілмеді немесе тапсырмада оған мүмкіндік болмады.</li>
+<li><b>Көмек</b> — мұғалім не құрдас жауаптың мазмұнын (бағытын, формуласын, санын) айтса. Бейтарап «Неге?» сұрағы көмек емес.</li>
+<li>Үнсіздікті «түсінбеді», көп сөйлеуді «меңгерді» деп жазбаңыз. Тек көрген не естігеніңізді дәлел ретінде жазыңыз.</li>
+</ul>
+</div>
+
+<div class="tabs" role="tablist" id="tabs"></div>
+<div id="app"></div>
+</div>
+
+<script>
+const IND=[
+["α мәнін атайды немесе жазады","Дауыстап айтады немесе дәптерге/экранға жазады. Ішінен оқуы көрінбесе — «мүмкін болмады»."],
+["Сыну заңымен жұмыс істейді","Формуланы не ережені (нормальға жақындайды) айтады, жазады немесе есептейді."],
+["Жүгірткімен γ таңдап, «Тексеру» басады","Жүгірткінің қозғалысы және батырманың басылуы көрінеді."],
+["Қате нәтижеден кейін жауабын өзгертеді","Тек экранда «Қайта көр» шыққанда бағаланады. Қате шықпаса — «мүмкін болмады»."],
+["Таңдауын сөзбен не жазумен негіздейді","Неге осы γ екенін дәлелмен (заң, есеп) айтады не жазады. Тек «білемін», «оңай» — негіздеме емес."]];
+const L={y:"Байқалды",n:"Байқалмады",u:"Бақылау мүмкін болмады"},H={s:"өздігінен",h:"көмекпен"};
+const S=[
+{code:"О-07",t:"Жүгірткіні болжап қояды",ctx:"О-07 жұмысты жалғыз орындайды. Мұғалім қасында тұр. Экранда α = 50°.",
+log:[["00:05","О-07 экрандағы мәнді дауыстап оқиды: «Түсу бұрышы елу градус»."],["00:12","Жүгірткіні сүйреп γ = 60° қояды."],["00:18","Мұғалім: «Неліктен 60°?» О-07: «Білмеймін, осылай көрінді»."],["00:24","«Тексеру» батырмасын басады. Экран: «Қайта көр. Дұрыс жауап γ ≈ 30,7°»."],["00:30","Үнсіз экранға қарап отырады, қолын қозғамайды."],["00:38","Мұғалім: «Сәуле нормальға жақындай ма, әлде алыстай ма?» О-07: «Жақындайды… нормальға жақындайды»."],["00:46","Жүгірткіні γ = 30° қояды, «Тексеру» басады. Экран: «Дұрыс»."]],
+k:[["y","s","00:05","«Түсу бұрышы елу градус» деп дауыстап оқыды. Әрекет көрінеді, көмексіз."],["y","h","00:38","Бағытты («нормальға жақындайды») мұғалімнің екі нұсқалы сұрағынан кейін айтты. Сұрақ мазмұнды бағыттады, сондықтан көмекпен."],["y","s","00:12","Жүгірткіні қойып, 00:24-те «Тексеру» басты. Таңдаудың дұрыс-бұрысы мұнда бағаланбайды, әрекеттің өзі бағаланады."],["y","h","00:38","Қате нәтиже шықты (00:24). Жауап 00:46-да өзгерді, бірақ мұғалімнің сұрағынан кейін ғана."],["n","","00:18","Негіздеме сұралды, жауап «Білмеймін». Мүмкіндік болды, негіздеме естілмеді. 00:30-дағы үнсіздікті «түсінбеді» деп жазуға болмайды: ол тек тыныштық, дәлел емес."]]},
+{code:"О-12",t:"Көп сөйлейді, бірақ дәлел бар ма?",ctx:"О-12 мен О-13 қатар отыр. Экранда α = 50°. Мұғалім бақыламайды.",
+log:[["00:04","О-12 жүгірткіге бірден қол созып: «Бұл оңай, мен мұны білемін»."],["00:09","Жүгірткіні γ = 35° қояды."],["00:13","«Тексеру» басады. Экран: «Қайта көр. Дұрыс жауап γ ≈ 30,7°»."],["00:19","О-12: «Компьютер қате көрсетті, мен дұрыс қойдым»."],["00:27","О-13: «sin γ = sin α бөлі n». О-12: «Жарайды, сонда sin 50° бөлі 1,5»."],["00:38","Калькулятордан оқып: «0,766 бөлі 1,5 — 0,51; арксинус — 30,7»."],["00:50","Жүгірткіні γ = 31° қояды, «Тексеру» басады. Экран: «Дұрыс»."]],
+k:[["u","","00:04","О-12 α мәнін айтпайды және жазбайды. Экранға қарауы көрінеді, бірақ ішінен оқуы көрінбейді. «Байқалмады» дегенге жеткілікті негіз жоқ."],["y","h","00:27","Формуланы О-13 айтты, О-12 оны қолданды. Формуланың көзі — құрдас, сондықтан көмекпен."],["y","s","00:09","Жүгірткіні қойып, 00:13-те «Тексеру» басты."],["y","h","00:27","Қате нәтижеден (00:13) кейін жауап өзгерді (00:50). Өзгеріс О-13 көмегінен кейін болды."],["y","h","00:38","Сандарды (0,766; 0,51; 30,7) өзі есептеп айтты. Формула құрдастан алынғандықтан — көмекпен. 00:04 пен 00:19-дағы «білемін», «компьютер қате» негіздеме емес."]]},
+{code:"О-03",t:"Үнсіз, бірақ жазып отырады",ctx:"О-03 жалғыз жұмыс істейді. Экранда α = 50°. Мұғалім алыстау тұр.",
+log:[["00:06","Дәптерге «sin 50° = 0,77» деп жазады."],["00:18","Дәптерге «0,77 : 1,5 = 0,51» деп жазады."],["00:31","Калькуляторда түймелерді басады. Калькулятор экраны бақылаушыға көрінбейді."],["00:40","Жүгірткіні γ = 31° қояды."],["00:44","«Тексеру» басады. Экран: «Дұрыс. γ ≈ 30,7°»."],["00:50","Мұғалім: «Неге 31°?» О-03: «0,51-дің арксинусы 31° шамасында»."]],
+k:[["y","s","00:06","Дәптердегі «sin 50°» жазбасы α мәнін қолданғанын көрсетеді. Дауыстап айтпауы маңызды емес."],["y","s","00:18","«0,77 : 1,5 = 0,51» — сыну заңы бойынша жазылған есеп. Көмек жоқ."],["y","s","00:40","Жүгірткі қойылды, 00:44-те «Тексеру» басылды."],["u","","00:44","Қате нәтиже шықпады, өзгертуге мүмкіндік болмады. «Байқалмады» деп жазуға болмайды."],["y","s","00:50","«Неге?» бейтарап сұрақ, мазмұнды бағыттамайды. Жауабында есептің нәтижесі (0,51, арксинус) бар."]]}
+];
+const tabs=document.getElementById("tabs"),app=document.getElementById("app");
+const rad=(n,v,l)=>`<label><input type="radio" name="${n}" value="${v}">${l}</label>`;
+S.forEach((s,i)=>{
+ tabs.insertAdjacentHTML("beforeend",`<button class="tab" role="tab" id="tb${i}" aria-selected="${i==0}" data-i="${i}">Жағдаят ${i+1}<small>${s.t}</small></button>`);
+ app.insertAdjacentHTML("beforeend",`<section class="card ${i?"hid":""}" id="s${i}"><h2>Жағдаят ${i+1}: ${s.t}</h2>
+ <h3>Жағдаят</h3><p>${s.ctx}</p>
+ <h3>Мазмұны</h3><ul class="log">${s.log.map(r=>`<li><time>${r[0]}</time><span>${r[1]}</span></li>`).join("")}</ul>
+ <div class="task"><b>Бақылаушының міндеті.</b> Бақылау парағын ${s.code} үшін толтырыңыз: әр көрсеткішке белгі қойып, кемінде бір нақты дәлел мен уақыт жазыңыз. Содан кейін ғана түсіндірмені ашыңыз.</div>
+ <h3>Бақылау парағы · оқушы ${s.code}</h3>
+ <form id="f${i}" onsubmit="return false">${IND.map((d,k)=>`<div class="ind"><b>${k+1}. ${d[0]}</b><div class="cond">${d[1]}</div>
+ <div class="row"><span class="lab">Белгі</span>${rad(`m${i}_${k}`,"y",L.y)}${rad(`m${i}_${k}`,"n",L.n)}${rad(`m${i}_${k}`,"u",L.u)}</div>
+ <div class="row"><span class="lab">Орындалуы</span>${rad(`h${i}_${k}`,"s","Өздігінен")}${rad(`h${i}_${k}`,"h","Көмекпен")}</div>
+ <div class="row"><span class="lab">Дәлел</span><input type="text" class="ev" id="e${i}_${k}" placeholder="Нені көрдіңіз/естідіңіз?" aria-label="Дәлел ${k+1}"><input type="text" class="tm" id="t${i}_${k}" placeholder="00:00" aria-label="Уақыт ${k+1}"></div></div>`).join("")}</form>
+ <button class="go" data-i="${i}">Тексеру түсіндірмесін ашу</button><p class="msg" id="g${i}" role="alert"></p><div class="res" id="r${i}"></div></section>`);
+});
+function show(i){S.forEach((_,j)=>{document.getElementById("s"+j).classList.toggle("hid",j!=i);document.getElementById("tb"+j).setAttribute("aria-selected",j==i)});}
+tabs.addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)show(+b.dataset.i)});
+const val=n=>{const x=document.querySelector(`input[name="${n}"]:checked`);return x?x.value:""};
+app.addEventListener("click",e=>{
+ const b=e.target.closest(".go");if(!b)return;const i=+b.dataset.i,s=S[i],msg=document.getElementById("g"+i);
+ let ev=0,miss=[];
+ IND.forEach((_,k)=>{const m=val(`m${i}_${k}`);if(!m)miss.push(`${k+1}-көрсеткіш: белгі қойылмаған`);else if(m=="y"&&!val(`h${i}_${k}`))miss.push(`${k+1}-көрсеткіш: өздігінен немесе көмекпен екенін таңдаңыз`);if(document.getElementById(`e${i}_${k}`).value.trim())ev++;});
+ if(!ev)miss.push("кемінде бір дәлел жазыңыз");
+ if(miss.length){msg.textContent="Түсіндірмені ашу үшін: "+miss.join("; ")+".";return}
+ msg.textContent="";let ok=0,h="";
+ IND.forEach((d,k)=>{const m=val(`m${i}_${k}`),hh=m=="y"?val(`h${i}_${k}`):"",q=s.k[k];
+  const good=m==q[0]&&(q[0]!="y"||hh==q[1]);if(good)ok++;
+  const you=L[m]+(hh?`, ${H[hh]}`:""),ex=L[q[0]]+(q[1]?`, ${H[q[1]]}`:"");
+  h+=`<div class="rit ${good?"ok":"bad"}"><b>${k+1}. ${d[0]}</b><p>Сіздің белгіңіз: ${you}. Үлгі белгі: ${ex} (${q[2]}).</p><p>${q[3]}</p></div>`;});
+ document.getElementById("r"+i).innerHTML=`<p class="score">Үлгімен сәйкестік: ${ok}/5 = ${ok*20}%</p>${h}<p class="cond">Пайыз — тек жаттығу көрсеткіші. Сәйкес келмеген белгінің себебін жағдаяттағы сөзбен салыстырыңыз.</p>`;
+ document.querySelectorAll(`#f${i} input`).forEach(x=>x.disabled=true);b.disabled=true;
+ document.getElementById("tb"+i).querySelector("small").textContent="орындалды: "+ok+"/5";
+});
+</script>
+</body>
+</html>
